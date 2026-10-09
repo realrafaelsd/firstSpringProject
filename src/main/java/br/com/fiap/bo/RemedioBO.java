@@ -44,7 +44,14 @@ public class RemedioBO {
         return remedioDAO.findByCodigo(codigo);
     }
 
+    public boolean delete(Long codigo){
+        remedioDAO = new RemedioDAO();
+        //aqui se implementa a regra de negocios
+        return remedioDAO.delete(codigo);
+    }
 }
+
+
 
 
 
