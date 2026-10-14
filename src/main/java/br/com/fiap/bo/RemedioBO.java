@@ -28,10 +28,10 @@ public class RemedioBO {
         //regras de negocio
 
         //A validação de validade foi substituido pelas Bean validation
-//        //verificando se o remedio esta vencido
+//        //verificando se o remedio está vencido
 //        if (remedio.getDataDeValidade().isBefore(LocalDate.now())){
 //            //se a data de validade for 'antes',
-//            // significa que o remedio esta vencido e retorna-se null
+//            // significa que o remedio está vencido e retorna-se null
 //            return null;
 //        }
         return remedioDAO.save(remedio);
@@ -48,6 +48,12 @@ public class RemedioBO {
         remedioDAO = new RemedioDAO();
         //aqui se implementa a regra de negocios
         return remedioDAO.delete(codigo);
+    }
+
+    public RemedioTO update (RemedioTO remedio) {
+        remedioDAO = new RemedioDAO();
+        //aqui teria a regra de negocio
+        return remedioDAO.update(remedio);
     }
 }
 

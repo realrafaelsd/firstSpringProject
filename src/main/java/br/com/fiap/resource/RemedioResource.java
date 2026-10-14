@@ -65,4 +65,19 @@ public class RemedioResource {
         }
     }
 
+    @PutMapping ("/{codigo}")//Anotação para inserir algo
+    public ResponseEntity<?> update (@PathVariable Long codigo,@RequestBody @Valid RemedioTO remedio){ //a primeira anotação refere-se que o codigo virá
+    //da URL e a segunda que o remedio seguirá o corpo da requisição
+        try {
+            remedio.setCodigo(codigo);
+            RemedioTO resultado = remedioBO.update((remedio));
+            return ResponseEntity.status(HttpStatus.CREATED).body(remedio);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro ao atualizar o remédio");
+        }
+
+
+
+    }
+
 }
